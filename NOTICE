@@ -1,0 +1,32 @@
+TVP — code framework
+====================
+
+This repository contains modified code from TF-VPR:
+
+    TF-VPR: A Novel Benchmark for Training-Free Visual Place Recognition
+    Copyright (c) 2024 Feng Lu
+    MIT License (see LICENSE)
+
+Modifications (2026):
+
+  * model/network_infer.py
+      - multi-scale GeM view (13 cells) and global mean view (1 token) in
+        addition to the 17-token TF-CAM semantic view;
+      - single-forward-pass TF + VLAD aggregation (`--mode TF_VLAD`,
+        `--vlad_centers2` for a second codebook);
+      - per-block output layout used by the offline calibration tools.
+  * model/free_module.py
+      - frozen-backbone helper extended for the multi-view forward pass.
+  * model/ot_cam.py, model/lang_prompt.py
+      - optional OT token purification and CLIP language-prompt experiments
+        (reported as neutral/negative in the accompanying notes).
+  * eval.py, parser.py, datasets_ws.py, test.py
+      - new modes/options, per-view descriptor dumps, indoor radii handling.
+  * run_eval.sh
+      - wrapper with portable paths and environment defaults.
+
+The scripts under tools/ were written for this project and are distributed
+under the same MIT license.
+
+No datasets, pretrained weights, feature dumps or experimental results are
+included in this repository.

@@ -1,0 +1,30 @@
+# data, weights and generated artefacts — never commit
+datasets/
+datasets_raw/
+weights/
+cache/
+test/
+subsets/
+dist/
+*.npy
+*.npz
+*.pt
+*.pth
+*.bin
+*.zip
+
+# environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# run outputs
+*.log
+*.out
+figures/
+
+# editor / OS
+.DS_Store
+.idea/
+.vscode/
